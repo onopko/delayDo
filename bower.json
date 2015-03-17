@@ -1,7 +1,7 @@
 {
 	"name": "delayDo",
 	"version": "1.0.0",
-	"homepage": "",
+	"homepage": "https://github.com/onopko/delayDo.git",
 	"authors": [
 		"Takehiko Ono <me@onotakehiko.com>"
 	],
@@ -11,7 +11,7 @@
 		"jquery",
 		"plugin",
 		"jquery-plugin",
-		"delayDo"
+		"delay-do"
 	],
 	"license": "MIT"
 }
