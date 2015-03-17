@@ -39,48 +39,48 @@ Also delayDo is friendly for modern browsers. Its delay method uses requestAnima
 
 ## Initialize and add functions to its queue
 
-	```javascript
-	$.delayDo(
-		// type 'string': A timer’s specific id (name).
-		'timerId',
+```javascript
+$.delayDo(
+	// type 'string': A timer’s specific id (name).
+	'timerId',
 
-		// type 'function': A function that is added to the timer’s queue.
-		function () {
-			// do something.
-		}
-	);
-	```
+	// type 'function': A function that is added to the timer’s queue.
+	function () {
+		// do something.
+	}
+);
+```
 
 ## Methods
 
-	#### $.delayDo.resume()
+#### $.delayDo.resume()
 
-	Resume the timer.
+Resume the timer.
 
-	```javascript
-	$.delayDo.resume({
-		timerId: 'timerId',
+```javascript
+$.delayDo.resume({
+	timerId: 'timerId',
 
-		// type 'number'
-		// unit 'millisecond':
-		// Functions that was added to the timer’s queue is executed one by one at this interval.
-		interval: 200,
+	// type 'number'
+	// unit 'millisecond':
+	// Functions that was added to the timer’s queue is executed one by one at this interval.
+	interval: 200,
 
-		// type 'function'
-		// This is executed after that the timer’s queue became empty.
-		complete: function () {
-			// do something.
-		}
-	});
-	```
+	// type 'function'
+	// This is executed after that the timer’s queue became empty.
+	complete: function () {
+		// do something.
+	}
+});
+```
 
-	#### $.delayDo.cancel()
+#### $.delayDo.cancel()
 
-	Cancel and destroy the timer.
+Cancel and destroy the timer.
 
-	```javascript
-	$.delayDo.cancel('timerId');
-	```
+```javascript
+$.delayDo.cancel('timerId');
+```
 
 ## Contributing
 
