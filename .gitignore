@@ -1,1 +1,21 @@
-.DS_Store
+/.sass-cache/
+/_vendor/
+
+# Ignore OS generated files #
+.DS_Store*
+ehthumbs.db
+Icon?
+Thumbs.db
+
+# Ignore packages #
+*.7z
+*.dmg
+*.gz
+*.iso
+*.jar
+*.rar
+*.tar
+*.zip
+
+# Ignore SFTP Package Setting #
+sftp-config.json

@@ -1,0 +1,25 @@
+/* ==================================================================
+ *
+ * Mixin
+ *
+ * ------------------------------------------------------------------ */
+
+/* ---------------------------------
+ *   CSS Image Sprite   */
+@mixin sprite ($_src, $_src_2x, $_width, $_height, $_left, $_top, $_display: block) {
+    display: $_display;
+
+    width: $_width;
+    height: $_height;
+
+    background-image: image-url($_src);
+    background-repeat: no-repeat;
+    background-position: $_left $_top;
+    @if $_src_2x != false {
+        @media (-webkit-min-device-pixel-ratio: 2), (-moz-min-device-pixel-ratio: 2) {
+            background-image: image-url($_src_2x);
+            -webkit-background-size: round(image-width($_src_2x)/2) round(image-height($_src_2x)/2);
+                    background-size: round(image-width($_src_2x)/2) round(image-height($_src_2x)/2);
+        }
+    }
+}
