@@ -1,2 +1,23 @@
-.DS_Store
-node_modules
+/.codekit-cache/
+/.sass-cache/
+/_vendor/
+/node_modules/
+
+# Ignore OS generated files #
+.DS_Store*
+ehthumbs.db
+Icon?
+Thumbs.db
+
+# Ignore packages #
+*.7z
+*.dmg
+*.gz
+*.iso
+*.jar
+*.rar
+*.tar
+*.zip
+
+# Ignore SFTP Package Setting #
+sftp-config.json
