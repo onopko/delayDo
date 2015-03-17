@@ -17,7 +17,7 @@ Also delayDo is friendly for modern browsers. Its delay method uses requestAnima
 	<script src="dist/delayDo.min.js"></script>
 	```
 
-3. Create a timer (just name specific timer id) and add functions to its queue:
+3. Initialize a timer (just name specific timer id) and add functions to its queue:
 
 	```javascript
 	$.delayDo('timerId', function () {
@@ -35,6 +35,51 @@ Also delayDo is friendly for modern browsers. Its delay method uses requestAnima
 			// do something.
 		}
 	});
+	```
+
+## Initialize and add functions to its queue
+
+	```javascript
+	$.delayDo(
+		// type 'string': A timer’s specific id (name).
+		'timerId',
+
+		// type 'function': A function that is added to the timer’s queue.
+		function () {
+			// do something.
+		}
+	);
+	```
+
+## Methods
+
+	#### $.delayDo.resume()
+
+	Resume the timer.
+
+	```javascript
+	$.delayDo.resume({
+		timerId: 'timerId',
+
+		// type 'number'
+		// unit 'millisecond':
+		// Functions that was added to the timer’s queue is executed one by one at this interval.
+		interval: 200,
+
+		// type 'function'
+		// This is executed after that the timer’s queue became empty.
+		complete: function () {
+			// do something.
+		}
+	});
+	```
+
+	#### $.delayDo.cancel()
+
+	Cancel and destroy the timer.
+
+	```javascript
+	$.delayDo.cancel('timerId');
 	```
 
 ## Contributing
