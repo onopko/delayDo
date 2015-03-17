@@ -4,16 +4,8 @@
  *  
  *
  *  Made by Takehiko Ono
- *  Under MIT License
+ *  Under  License
  */
-/*!
- * jQuery delayDo Plugin v1.0.0
- * flat.is
- *
- * Copyright (c) Takehiko Ono
- * Available under the BSD and MIT licenses
- */
-
 ;(function ($, window, undefined) {
 
 	"use strict";
