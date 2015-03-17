@@ -1,6 +1,7 @@
 /.codekit-cache/
 /.sass-cache/
 /_vendor/
+/assets/
 /node_modules/
 
 # Ignore OS generated files #
