@@ -14,7 +14,7 @@
 	<script src="dist/delayDo.min.js"></script>
 	```
 
-3. Call the plugin and add functions to specific timer id:
+3. Call the plugin and add functions to specific timer:
 
 	```javascript
 	$.delayDo('timerId', function () {
