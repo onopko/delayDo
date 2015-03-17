@@ -1,6 +1,7 @@
 # delayDo [![Build Status](https://secure.travis-ci.org/onopko/delayDo.svg?branch=master)](https://travis-ci.org/onopko/delayDo) ![Bower Version](https://badge.fury.io/bo/delay-do.svg)
 
 delayDo is a tiny jQuery plugin. It enables you to create a specific timer which contains some functions as a queue and can resume it later.
+
 Also delayDo is friendly for modern browsers. Its delay method uses requestAnimationFrame() and Performance.now() instead of setTimeout() and Date.now().
 
 ## Usage
