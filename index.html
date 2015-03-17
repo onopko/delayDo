@@ -1,0 +1,100 @@
+<!doctype html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="chrome=1">
+    <title>delayDo by onopko</title>
+
+    <link rel="stylesheet" href="stylesheets/styles.css">
+    <link rel="stylesheet" href="stylesheets/pygment_trac.css">
+    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
+    <!--[if lt IE 9]>
+    <script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+    <![endif]-->
+  </head>
+  <body>
+    <div class="wrapper">
+      <header>
+        <h1>delayDo</h1>
+        <p>delayDo is a tiny jQuery plugin. It enables you to create a specific timer which contains some functions as a queue and can resume it later.</p>
+
+        <p class="view"><a href="https://github.com/onopko/delayDo">View the Project on GitHub <small>onopko/delayDo</small></a></p>
+
+
+        <ul>
+          <li><a href="https://github.com/onopko/delayDo/zipball/master">Download <strong>ZIP File</strong></a></li>
+          <li><a href="https://github.com/onopko/delayDo/tarball/master">Download <strong>TAR Ball</strong></a></li>
+          <li><a href="https://github.com/onopko/delayDo">View On <strong>GitHub</strong></a></li>
+        </ul>
+      </header>
+      <section>
+        <p>delayDo is a tiny jQuery plugin. It enables you to create a specific timer which contains some functions as a queue and can resume it later.</p>
+
+<p>And also delayDo is friendly for modern browsers. Its delay method uses requestAnimationFrame() and Performance.now() instead of setTimeout() and Date.now().</p>
+
+<h2>
+<a id="usage" class="anchor" href="#usage" aria-hidden="true"><span class="octicon octicon-link"></span></a>Usage</h2>
+
+<ol>
+<li>
+<p>Include jQuery:</p>
+
+<div class="highlight highlight-html"><pre>&lt;<span class="pl-ent">script</span> <span class="pl-e">src</span>=<span class="pl-s1"><span class="pl-pds">"</span>http://ajax.googleapis.com/ajax/libs/jquery/2.0.0/jquery.min.js<span class="pl-pds">"</span></span>&gt;&lt;/<span class="pl-ent">script</span>&gt;</pre></div>
+</li>
+<li>
+<p>Include plugin's code:</p>
+
+<div class="highlight highlight-html"><pre>&lt;<span class="pl-ent">script</span> <span class="pl-e">src</span>=<span class="pl-s1"><span class="pl-pds">"</span>dist/delayDo.min.js<span class="pl-pds">"</span></span>&gt;&lt;/<span class="pl-ent">script</span>&gt;</pre></div>
+</li>
+<li>
+<p>Create a timer (just name specific timer id) and add functions to its queue:</p>
+
+<div class="highlight highlight-javascript"><pre>$.delayDo(<span class="pl-s1"><span class="pl-pds">'</span>timerId<span class="pl-pds">'</span></span>, <span class="pl-st">function</span> () {
+    <span class="pl-c">// do something.</span>
+});</pre></div>
+</li>
+<li>
+<p>Resume the timer. It calls a function from the queue one by one at regular intervals:</p>
+
+<div class="highlight highlight-javascript"><pre>$.delayDo.resume({
+    timerId<span class="pl-k">:</span> <span class="pl-s1"><span class="pl-pds">'</span>timerId<span class="pl-pds">'</span></span>,
+    interval<span class="pl-k">:</span> <span class="pl-c1">200</span>,
+    <span class="pl-en">complete</span>: <span class="pl-st">function</span> () {
+        <span class="pl-c">// do something.</span>
+    }
+});</pre></div>
+</li>
+</ol>
+
+<h2>
+<a id="contributing" class="anchor" href="#contributing" aria-hidden="true"><span class="octicon octicon-link"></span></a>Contributing</h2>
+
+<p>Check <a href="https://github.com/onopko/delayDo/blob/master/CONTRIBUTING.md">CONTRIBUTING.md</a> for more information.</p>
+
+<h2>
+<a id="history" class="anchor" href="#history" aria-hidden="true"><span class="octicon octicon-link"></span></a>History</h2>
+
+<p>Check <a href="https://github.com/onopko/delayDo/releases">Releases</a> for detailed changelog.</p>
+
+<h2>
+<a id="license" class="anchor" href="#license" aria-hidden="true"><span class="octicon octicon-link"></span></a>License</h2>
+
+<p>The MIT License (<a href="http://www.opensource.org/licenses/mit-license.php">MIT</a>)</p>
+
+<p>Copyright © 2015 Takehiko Ono <a href="mailto:me@onotakehiko.com">me@onotakehiko.com</a></p>
+
+<p>Permission is hereby granted, free of charge, to any person obtaining a copy of this software and associated documentation files (the “Software”), to deal in the Software without restriction, including without limitation the rights to use, copy, modify, merge, publish, distribute, sublicense, and/or sell copies of the Software, and to permit persons to whom the Software is furnished to do so, subject to the following conditions:</p>
+
+<p>The above copyright notice and this permission notice shall be included in all copies or substantial portions of the Software.</p>
+
+<p>THE SOFTWARE IS PROVIDED “AS IS”, WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.</p>
+      </section>
+      <footer>
+        <p>This project is maintained by <a href="https://github.com/onopko">onopko</a></p>
+        <p><small>Hosted on GitHub Pages &mdash; Theme by <a href="https://github.com/orderedlist">orderedlist</a></small></p>
+      </footer>
+    </div>
+    <script src="javascripts/scale.fix.js"></script>
+    
+  </body>
+</html>
