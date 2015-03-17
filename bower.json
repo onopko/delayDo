@@ -1,18 +1,17 @@
 {
-	"name": "jquery-boilerplate",
-	"version": "3.5.0",
-	"homepage": "http://jqueryboilerplate.com",
+	"name": "delayDo",
+	"version": "1.0.0",
+	"homepage": "",
 	"authors": [
-		"Zeno Rocha <hi@zenorocha.com>"
+		"Takehiko Ono <me@onotakehiko.com>"
 	],
-	"description": "A jump-start for jQuery plugins development.",
-	"main": "src/jquery.boilerplate.js",
+	"description": "",
+	"main": "src/delayDo.js",
 	"keywords": [
 		"jquery",
 		"plugin",
-		"boilerplate",
 		"jquery-plugin",
-		"jquery-boilerplate"
+		"delayDo"
 	],
 	"license": "MIT"
 }
