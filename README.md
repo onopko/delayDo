@@ -18,7 +18,7 @@ Also delayDo is friendly for modern browsers. Its delay method uses __requestAni
 	<script src="dist/delayDo.min.js"></script>
 	```
 
-3. Initialize a timer (just name specific timer id) and add functions to its queue:
+3. Initialize a delayDo timer (just name specific timer id) and add functions to its queue:
 
 	```javascript
 	$.delayDo('timerId', function () {
@@ -26,7 +26,7 @@ Also delayDo is friendly for modern browsers. Its delay method uses __requestAni
 	});
 	```
 
-4. Resume the timer. It calls a function from the queue one by one at regular intervals:
+4. Resume the delayDo timer. It calls a function from the queue one by one at regular intervals:
 
 	```javascript
 	$.delayDo.resume({
@@ -42,10 +42,10 @@ Also delayDo is friendly for modern browsers. Its delay method uses __requestAni
 
 ```javascript
 $.delayDo(
-	// type 'string': A timer’s specific id (name).
+	// type 'string': A delayDo timer’s specific id (name).
 	'timerId',
 
-	// type 'function': A function that is added to the timer’s queue.
+	// type 'function': A function that is added to the delayDo timer’s queue.
 	function () {
 		// do something.
 	}
@@ -56,7 +56,7 @@ $.delayDo(
 
 #### $.delayDo.resume()
 
-Resume the timer.
+Resume the delayDo timer.
 
 ```javascript
 $.delayDo.resume({
@@ -64,7 +64,7 @@ $.delayDo.resume({
 
 	// type 'number'
 	// unit 'millisecond'
-	// Functions in the timer’s queue is executed one by one at this interval.
+	// Functions in the queue of delayDo timer is executed one by one at this interval.
 	interval: 200,
 
 	// type 'number'
@@ -73,7 +73,7 @@ $.delayDo.resume({
 	delay: null,
 
 	// type 'function'
-	// This is executed after that the timer’s queue became empty.
+	// This is executed after that the queue of delayDo timer became empty.
 	complete: function () {
 		// do something.
 	}
@@ -82,10 +82,18 @@ $.delayDo.resume({
 
 #### $.delayDo.cancel()
 
-Cancel and destroy the timer.
+Clear queue off specific delayDo timer and destroy itself.
 
 ```javascript
 $.delayDo.cancel('timerId');
+```
+
+#### $.delayDo.bustercall()
+
+Clear all queues off delayDo timers and destroy themselves.
+
+```javascript
+$.delayDo.bustercall();
 ```
 
 ## Contributing
