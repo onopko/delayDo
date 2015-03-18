@@ -35,7 +35,7 @@
 		       };
 	})();
 
-	var setAnimationFrame = function(_callback, _interval) {
+	var setAnimationFrameTimeout = function(_callback, _interval) {
 		var elapsed   = 0;
 		var time      = getTime();
 		var is_paused = false;
@@ -118,16 +118,17 @@
 		},
 		resume: function (_options) {
 			var options = $.extend({
-				timerId: null,
-				interval: 100,
-				complete: null
+				timerId  : null,
+				interval : 100,
+				delay    : null,
+				complete : null
 			}, _options);
 
 			var that = this;
 
-			if (that.queueObj[options.timerId]) {
+			var exec = function () {
 				that.queueObj[options.timerId].cancel();
-				that.queueObj[options.timerId].timer = setAnimationFrame(function () {
+				that.queueObj[options.timerId].timer = setAnimationFrameTimeout(function () {
 					var queue_func = that.queueObj[options.timerId].queue.shift();
 					if (queue_func) {
 						queue_func();
@@ -141,6 +142,17 @@
 						that = queue_func = void 0;
 					}
 				}, options.interval);
+			};
+
+			if (that.queueObj[options.timerId]) {
+				if (options.delay !== null && typeof options.delay === "number") {
+					setAnimationFrameTimeout(function () {
+						exec();
+					}, options.delay);
+				}
+				else {
+					exec();
+				}
 
 				return this;
 			}
