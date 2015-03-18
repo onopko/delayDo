@@ -166,12 +166,16 @@ ul, ol {
 	}
 	.p-header--section {
 		h2 {
-			@extend .x-large;
+			font-size: 40px;
 			color: #fff;
 		}
 		border-bottom: 1px solid rgba(255,255,255,0.5);
 	}
 	h3 {
+		@extend .x-large;
+		font-weight: 700;
+	}
+	h4 {
 		@extend .large;
 		font-weight: 700;
 	}
@@ -198,10 +202,10 @@ ul, ol {
 	margin-top: 40px;
 	padding-bottom: 20px;
 	.p-header--example {
-		h3 {
+		h4 {
 			span {
 				color: #fff;
-				//color: #FE8C8D;
+				/* color: #FE8C8D; */
 			}
 		}
 	}
