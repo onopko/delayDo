@@ -1,5 +1,6 @@
 /.sass-cache/
 /_vendor/
+/node_modules/
 
 # Ignore OS generated files #
 .DS_Store*
@@ -19,3 +20,5 @@ Thumbs.db
 
 # Ignore SFTP Package Setting #
 sftp-config.json
+deployment-config.json
+.remote-sync.json

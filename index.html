@@ -4,127 +4,155 @@
 	<head>
 		<meta charset="utf-8">
 		<meta http-equiv="X-UA-Compatible" content="IE=edge">
-		<title></title>
-		<meta name="description" content="">
+		<title>delayDo | a tiny timer management plugin for jQuery</title>
+		<meta name="description" content="delayDo enables you to create a specific timer which contains some functions as a queue and can resume it later.">
 		<meta name="viewport" content="width=device-width, initial-scale=1">
 
-		<meta property="og:title" content="">
-		<meta property="og:type" content="">
-		<meta property="og:url" content="">
+		<meta property="og:title" content="delayDo | a tiny timer management plugin for jQuery">
+		<meta property="og:type" content="website">
+		<meta property="og:url" content="http://onopko.github.io/delayDo/">
 		<meta property="og:image" content="">
-		<meta property="og:site_name" content="">
-		<meta property="og:description" content="">
+		<meta property="og:site_name" content="delayDo | a tiny timer management plugin for jQuery">
+		<meta property="og:description" content="delayDo enables you to create a specific timer which contains some functions as a queue and can resume it later.">
 		<meta property="og:locale" content="ja_JP">
 		<meta property="fb:app_id" content="">
 
-		<meta name="twitter:card" content="summary">
-		<meta name="twitter:site" content="@">
-		<meta name="twitter:creator" content="@">
-		<meta name="twitter:title" content="">
-		<meta name="twitter:description" content="">
-		<meta name="twitter:image" content="">
-
 		<link rel="image_src" href="">
-		<link rel="canonical" href="">
-
-		<link rel="apple-touch-icon" href="/assets/images/apple-touch-icon.png">
-		<link rel="shortcut icon" href="/assets/images/favicon.ico">
-		<link rel="logo" href="/assets/images/logo.svg">
+		<link rel="canonical" href="http://onopko.github.io/delayDo/">
 
 		<link rel="stylesheet" href="/assets/css/base.css">
 		<link rel="stylesheet" href="/assets/css/core.css">
 		<script src="/assets/js/vendor/modernizr.min.js"></script>
 	</head>
+
 	<body>
-		<!--[if lt IE 8]>
-			<p class="browserupgrade">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade your browser</a> to improve your experience.</p>
-		<![endif]-->
+		<div class="c-wrapper--super">
+			<header class="p-header--site">
+				<h1 class="c-title--site">delayDo</h1>
+				<p>a tiny timer management plugin for jQuery</p>
+				<a href="https://github.com/onopko/delayDo"><img alt="Fork me on GitHub" src="https://s3.amazonaws.com/github/ribbons/forkme_right_darkblue_121621.png" style="position: absolute; top: 0; right: 0; border: 0;"></a>
+			</header>
 
-		<!-- Add your site or application content here -->
-		<p>Hello world! This is HTML5 Boilerplate.</p>
+			<div class="c-description--site">
+				<p>delayDo is a tiny jQuery plugin. It enables you to create a specific timer which contains some functions as a queue and can resume it later.</p>
+				<p>Also delayDo is friendly for modern browsers. Its delay method uses <em>requestAnimationFrame()</em> and <em>performance.now()</em> instead of setTimeout() and Date.now().</p>
+			</div>
 
-		<!-- Social Buttons -->
-		<ul>
-			<li class="facebook"><fb:like href="" send="false" layout="button_count" show_faces="false"></fb:like></li>
-			<li class="twitter"><a href="http://twitter.com/share" class="twitter-share-button" data-text="" data-url="" data-hashtags="" data-lang="ja">ツイート</a></li>
-			<li class="google"><div class="g-plusone" data-size="medium"></div></li>
-		</ul>
+			<section class="p-section">
+				<header class="p-header--section">
+					<h2>Usage</h2>
+				</header>
+				<ol>
+					<li>
+						<p>Include jQuery.</p>
+<pre><code data-language="javascript"><script src="http://ajax.googleapis.com/ajax/libs/jquery/2.0.0/jquery.min.js"></script></code></pre>
+					</li>
+					<li>
+						<p>Include plugin's code.</p>
+<pre><code data-language="javascript"><script src="dist/delayDo.min.js"></script></code></pre>
+					</li>
+					<li>
+						<p>Initialize a timer (just name specific timer id) and add functions to its queue.</p>
+<pre><code data-language="javascript">$.delayDo('timerId', function () {
+    // do something.
+});</code></pre>
+					</li>
+					<li>
+						<p>Resume the timer. It calls a function from the queue one by one at regular intervals.</p>
+<pre><code data-language="javascript">$.delayDo.resume({
+    timerId: 'timerId',
+    interval: 200,
+    complete: function () {
+        // do something.
+    }
+});</code></pre>
+					</li>
+				</ol>
+			</section>
+
+			<section class="p-section">
+				<header class="p-header--section">
+					<h2>Initialize a timer and add functions to its queue</h2>
+				</header>
+<pre><code data-language="javascript">$.delayDo(
+    // type 'string': timer’s specific id (name).
+    'timerId',
+
+    // type 'function': function that is added to the timer’s queue.
+    function () {
+        // do something.
+    }
+);</code></pre>
+			</section>
+
+			<section class="p-section--methods">
+				<header class="p-header--section">
+					<h2>Methods</h2>
+				</header>
+				<h3>$.delayDo.<span>resume</span>()</h3>
+				<p>Resume the delayDo timer.</p>
+<pre><code data-language="javascript">$.delayDo.resume({
+    timerId: 'timerId',
+
+    // type 'number'
+    // unit 'millisecond'
+    // Functions in the queue of delayDo timer is executed one by one at this interval.
+    interval: 200,
+
+    // type 'number'
+    // unit 'millisecond'
+    // This method will be called after this property’s value.
+    delay: null,
+
+    // type 'function'
+    // This is executed after that the queue of delayDo timer became empty.
+    complete: function () {
+        // do something.
+    }
+});</code></pre>
+				<h3>$.delayDo.<span>cancel</span>()</h3>
+				<p>Clear queue off specific delayDo timer and destroy itself.</p>
+				<pre><code data-language="javascript">$.delayDo.cancel('timerId');</code></pre>
+				<h3>$.delayDo.<span>bustercall</span>()</h3>
+				<p>Clear all queues off delayDo timers and destroy themselves.</p>
+				<pre><code data-language="javascript">$.delayDo.bustercall();</code></pre>
+			</section>
+
+			<section class="p-section">
+				<header class="p-header--section">
+					<h2>Examples</h2>
+				</header>
+				<section class="p-example">
+					<header class="p-header--example">
+						<h3><span>Example 1:</span> Animation with single timer</h3>
+					</header>
+					<p data-height="408" data-theme-id="0" data-slug-hash="pvQqVO" data-default-tab="result" data-user="onopko" class='codepen'>See the Pen <a href='http://codepen.io/onopko/pen/pvQqVO/'>delayDo Example 1</a> by Takehiko Ono (<a href='http://codepen.io/onopko'>@onopko</a>) on <a href='http://codepen.io'>CodePen</a>.</p>
+					<script async src="//assets.codepen.io/assets/embed/ei.js"></script>
+				</section>
+				<section class="p-example">
+					<header class="p-header--example">
+						<h3><span>Example 2:</span> Animation widh multiple timer</h3>
+					</header>
+					<p data-height="408" data-theme-id="0" data-slug-hash="pvQGaz" data-default-tab="result" data-user="onopko" class='codepen'>See the Pen <a href='http://codepen.io/onopko/pen/pvQGaz/'>delayDo Example 2</a> by Takehiko Ono (<a href='http://codepen.io/onopko'>@onopko</a>) on <a href='http://codepen.io'>CodePen</a>.</p>
+					<script async src="//assets.codepen.io/assets/embed/ei.js"></script>
+				</section>
+				<section class="p-example">
+					<header class="p-header--example">
+						<h3><span>Example 3:</span> Masonry Appended with timer</h3>
+					</header>
+					<p data-height="408" data-theme-id="0" data-slug-hash="VYVNVj" data-default-tab="result" data-user="onopko" class='codepen'>See the Pen <a href='http://codepen.io/onopko/pen/VYVNVj/'>delayDo Example 3</a> by Takehiko Ono (<a href='http://codepen.io/onopko'>@onopko</a>) on <a href='http://codepen.io'>CodePen</a>.</p>
+					<script async src="//assets.codepen.io/assets/embed/ei.js"></script>
+				</section>
+			</section>
+		</div>
 
 		<script src="//ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
 		<script>window.jQuery || document.write('<script src="/assets/js/vendor/jquery.min.js"><\/script>')</script>
 		<script src="/assets/js/plugins.min.js"></script>
 		<script src="/assets/js/core.min.js"></script>
 
-		<!-- Facebook JavaScript SDK -->
-		<div id="fb-root"></div>
-		<script type="text/javascript">
-			window.fbAsyncInit = function() {
-				FB.init({
-					appId: 'XXXXXXXX',
-					xfbml: true,
-					status: true,
-					cookie: true,
-					version: 'v2.0'
-				});
-
-				FB.Event.subscribe('edge.create', function(targetUrl) {
-					ga('send', 'social', 'facebook', 'like', targetUrl);
-				});
-				FB.Event.subscribe('edge.remove', function(targetUrl) {
-					ga('send', 'social', 'facebook', 'unlike', targetUrl);
-				});
-				FB.Event.subscribe('message.send', function(targetUrl) {
-					ga('send', 'social', 'facebook', 'send', targetUrl);
-				});
-			};
-
-			(function(d, s, id){
-				var js, fjs = d.getElementsByTagName(s)[0];
-				if (d.getElementById(id)) {return;}
-				js = d.createElement(s); js.id = id;
-				js.src = '//connect.facebook.net/ja_JP/sdk.js';
-				js.async = true;
-				fjs.parentNode.insertBefore(js, fjs);
-			}(document, 'script', 'facebook-jssdk'));
-		</script>
-
-		<!-- Twitter Widgets -->
-		<script>
-			window.twttr = (function(d, s, id) {
-				var t, js, fjs = d.getElementsByTagName(s)[0];
-				if (d.getElementById(id)) return;
-				js = d.createElement(s);
-				js.id = id;
-				js.src = 'https://platform.twitter.com/widgets.js';
-				fjs.parentNode.insertBefore(js, fjs);
-				return window.twttr || (t = {
-					_e: [],
-					ready: function(f) {
-						t._e.push(f)
-					}
-				})
-			}(document, 'script', 'twitter-wjs'));
-
-			twttr.ready(function(twttr) {
-				twttr.events.bind('click', function(e) {
-					ga('send', 'social', 'twitter', 'click', window.location.href);
-				});
-				twttr.events.bind('tweet', function(e) {
-					ga('send', 'social', 'twitter', 'tweet', window.location.href);
-				});
-			});
-		</script>
-
-		<!-- Google+ -->
-		<script type="text/javascript">
-			window.___gcfg = {lang: 'ja'};
-
-			(function() {
-				var po = document.createElement('script'); po.type = 'text/javascript'; po.async = true;
-				po.src = 'https://apis.google.com/js/platform.js';
-				var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(po, s);
-			})();
-		</script>
+		<script src="//use.typekit.net/bod3afr.js"></script>
+		<script>try{Typekit.load();}catch(e){}</script>
 
 		<!-- Google Analytics: change UA-XXXXX-X to be your site's ID. -->
 		<script>

@@ -1,4 +1,79 @@
 /* ==================================================================
+ * $variables
+ * ------------------------------------------------------------------ */
+
+$base-font-size: 15px;
+
+$font-family-yugothic: '游ゴシック体', '游ゴシック', 'Yu Gothic', YuGothic;
+$font-family-yuMincho: '游明朝体', '游明朝', 'Yu Mincho', YuMincho;
+$font-family-hirakaku: 'ヒラギノ角ゴ ProN W3', 'Hiragino Kaku Gothic ProN';
+$font-family-hirakaku-black: 'ヒラギノ角ゴ StdN','Hiragino Kaku Gothic StdN';
+$font-family-futura: 'futura-pt';
+$font-family-freight: 'freight-sans-pro';
+
+
+/* ==================================================================
+ * Basic
+ * ------------------------------------------------------------------ */
+
+a:focus { outline: none; border: 0; }
+button::-moz-focus-inner { border: 0; }
+
+
+/* ==================================================================
+ * Typography
+ * ------------------------------------------------------------------ */
+
+@font-face {
+	font-family: 'Adobe Blank';
+	src: url('/assets/fonts/AdobeBlank.eot'); /* IE9 Compat Modes */
+	src: url('/assets/fonts/AdobeBlank.eot?#iefix') format('embedded-opentype'), /* IE6-IE8 */
+		 url('/assets/fonts/AdobeBlank.woff') format('woff'), /* Modern Browsers */
+		 url('/assets/fonts/AdobeBlank.ttf')  format('truetype'); /* Safari, Android, iOS */
+	font-weight: normal;
+	font-style: normal;
+}
+
+body {
+	font-family: 'HelveticaNeue', 'Helvetica', $font-family-hirakaku, 'メイリオ', Meiryo, Osaka, 'MS UI Gothic', 'ＭＳ Ｐゴシック', 'MS PGothic', sans-serif;
+	text-rendering: optimizeLegibility;
+	font-feature-settings: 'kern';
+	-webkit-font-feature-settings: 'kern';
+	-moz-font-feature-settings: 'kern';
+	-moz-font-feature-settings: 'kern=1';
+	-webkit-font-smoothing: antialiased;
+}
+
+.x-large { font-size: 2    * $base-font-size; }
+.large   { font-size: 1.5  * $base-font-size; }
+.mid     { font-size: 1.17 * $base-font-size; }
+.normal  { font-size: 1    * $base-font-size; }
+.small   { font-size: 0.83 * $base-font-size; }
+.x-small { font-size: 0.67 * $base-font-size; }
+
+h1, h2, h3, h4, h5, h6 {
+	line-height: 100%;
+	margin-top: 0;
+	color: #534d3e;
+}
+
+h1 {
+	font-family: $font-family-futura;
+	font-weight: 800;
+}
+
+h2 {
+	font-family: $font-family-futura;
+	font-weight: 700;
+}
+
+h3 {
+	font-family: $font-family-futura;
+	font-weight: 500;
+}
+
+
+/* ==================================================================
  *
  * Mixin
  *
@@ -22,4 +97,111 @@
                     background-size: round(image-width($_src_2x)/2) round(image-height($_src_2x)/2);
         }
     }
+}
+
+body {
+	background: #D8C252;
+}
+
+em {
+	font-style: normal;
+	font-weight: bold;
+	color: #222;
+}
+
+p {
+	color: #534d3e;
+}
+
+pre {
+	@include border-radius (5px);
+	margin: 20px 0 40px 0;
+	background: #3D3D3E;
+}
+
+code {
+	font-size: 14px;
+	font-family: Menlo, 'courier', 'Monaco', monospace;
+}
+
+ul, ol {
+	padding-left: 25px;
+	pre {
+		margin: 20px 0 40px -25px;
+	}
+}
+
+.c-wrapper--super {
+    margin: 0 auto;
+    width: 720px;
+}
+
+
+.p-header--site {
+	margin: 80px 0;
+	.c-title--site {
+		@include single-text-shadow (3px, 4px, 0, 0, #B5A242);
+		text-align: center;
+		color: #fff;
+		font-size: 100px;
+		margin: 0;
+	}
+	p {
+		@extend .large;
+		font-family: $font-family-futura;
+		text-align: center;
+	}
+}
+
+.c-description--site {
+	margin-bottom: 80px;
+	p {
+		font-weight: bold;
+	}
+}
+
+.p-section {
+	& + & {
+		margin-top: 80px;
+	}
+	.p-header--section {
+		h2 {
+			@extend .x-large;
+			color: #fff;
+		}
+		border-bottom: 1px solid rgba(255,255,255,0.5);
+	}
+	h3 {
+		@extend .large;
+		font-weight: 700;
+	}
+}
+
+.p-section--methods {
+	@extend .p-section;
+	.p-header--section {
+		margin-bottom: 40px;
+	}
+	h3 {
+		margin: 0 0 0.5em 0;
+		span {
+			color: #222;
+		}
+	}
+	p {
+		margin: 0;
+	}
+}
+
+.p-example {
+	margin-top: 40px;
+	padding-bottom: 20px;
+	.p-header--example {
+		h3 {
+			span {
+				color: #fff;
+				//color: #FE8C8D;
+			}
+		}
+	}
 }

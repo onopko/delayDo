@@ -25,3 +25,5 @@
 
 //@codekit-append "../../_vendor/cssuseragent/cssua.js"
 //@codekit-append "../../_vendor/underscore/underscore.js"
+//@codekit-append "../../_vendor/rainbow/js/rainbow.js"
+//@codekit-append "../../_vendor/rainbow/js/language/javascript.js"
