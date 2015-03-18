@@ -102,14 +102,20 @@
 				that.queueObj[_timerId] = {
 					queue: [],
 					timer: null,
-					cancel: function() {
-						if (!that.queueObj[_timerId].timer) { return false; }
-
-						that.queueObj[_timerId].timer.pause();
-						that.queueObj[_timerId].timer = null;
-						that.queueObj[_timerId] = null;
-
-						that = void 0;
+					cancel: function (_mode) {
+						if (_mode !== undefined && _mode === "triggeredByCancelMethod") {
+							if (that.queueObj[_timerId].timer) {
+								that.queueObj[_timerId].timer.pause();
+							}
+							that.queueObj[_timerId].timer = null;
+							that.queueObj[_timerId].queue = [];
+							that.queueObj[_timerId] = null;
+						}
+						else if (that.queueObj[_timerId].timer) {
+							that.queueObj[_timerId].timer.pause();
+							that.queueObj[_timerId].timer = null;
+							that.queueObj[_timerId] = null;
+						}
 					}
 				};
 			}
@@ -138,16 +144,17 @@
 						if (typeof options.complete === "function") {
 							options.complete();
 						}
-
-						that = queue_func = void 0;
 					}
+					queue_func = void 0;
 				}, options.interval);
 			};
 
 			if (that.queueObj[options.timerId]) {
 				if (options.delay !== null && typeof options.delay === "number") {
-					setAnimationFrameTimeout(function () {
+					var delayTimer = setAnimationFrameTimeout(function () {
 						exec();
+						delayTimer.pause();
+						delayTimer = void 0;
 					}, options.delay);
 				}
 				else {
@@ -162,7 +169,7 @@
 		},
 		cancel: function (_timerId) {
 			if (this.queueObj[_timerId]) {
-				this.queueObj[_timerId].cancel();
+				this.queueObj[_timerId].cancel("triggeredByCancelMethod");
 
 				return this;
 			}
