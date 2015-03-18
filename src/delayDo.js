@@ -181,11 +181,21 @@
 	};
 
 	$[pluginName].resume = function (_options) {
-		$.data($, "plugin_" + pluginName).resume(_options);
+		if ($.data($, "plugin_" + pluginName)) {
+			$.data($, "plugin_" + pluginName).resume(_options);
+		}
+		else {
+			return undefined;
+		}
 	};
 
 	$[pluginName].cancel = function (_timerId) {
-		$.data($, "plugin_" + pluginName).cancel(_timerId);
+		if ($.data($, "plugin_" + pluginName)) {
+			$.data($, "plugin_" + pluginName).cancel(_timerId);
+		}
+		else {
+			return undefined;
+		}
 	};
 
 })(jQuery, window);
