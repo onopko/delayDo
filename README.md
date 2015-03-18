@@ -63,9 +63,14 @@ $.delayDo.resume({
 	timerId: 'timerId',
 
 	// type 'number'
-	// unit 'millisecond':
-	// Functions that was added to the timer’s queue is executed one by one at this interval.
+	// unit 'millisecond'
+	// Functions in the timer’s queue is executed one by one at this interval.
 	interval: 200,
+
+	// type 'number'
+	// unit 'millisecond'
+	// This method will be called after this property’s value.
+	delay: null,
 
 	// type 'function'
 	// This is executed after that the timer’s queue became empty.
