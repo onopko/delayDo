@@ -85,6 +85,9 @@
 
 	$.extend(Plugin.prototype, {
 		init: function (_timerId, _func) {
+			this.push(_timerId, _func);
+		},
+		push: function (_timerId, _func) {
 			var that = this;
 
 			if (!that.queueObj[_timerId]) {
@@ -103,10 +106,7 @@
 				};
 			}
 
-			this.push(_timerId, _func);
-		},
-		push: function (_timerId, _func) {
-			this.queueObj[_timerId].queue.push(_func);
+			that.queueObj[_timerId].queue.push(_func);
 		},
 		resume: function (_options) {
 			var options = $.extend({
