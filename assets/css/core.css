@@ -170,15 +170,16 @@ ul, ol {
   margin: 0 0 0.5em 0; }
 @media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/onopko\/Dropbox\/Documents\/delayDo\/assets\/scss\/_common\.scss}line{font-family:\00003187}}
   .p-section--methods h3 span {
+    font-weight: 800;
     color: #222; }
-@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/onopko\/Dropbox\/Documents\/delayDo\/assets\/scss\/_common\.scss}line{font-family:\00003191}}
+@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/onopko\/Dropbox\/Documents\/delayDo\/assets\/scss\/_common\.scss}line{font-family:\00003192}}
 .p-section--methods p {
   margin: 0; }
 
-@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/onopko\/Dropbox\/Documents\/delayDo\/assets\/scss\/_common\.scss}line{font-family:\00003196}}
+@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/onopko\/Dropbox\/Documents\/delayDo\/assets\/scss\/_common\.scss}line{font-family:\00003197}}
 .p-example {
   margin-top: 40px;
   padding-bottom: 20px; }
-@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/onopko\/Dropbox\/Documents\/delayDo\/assets\/scss\/_common\.scss}line{font-family:\00003201}}
+@media -sass-debug-info{filename{font-family:file\:\/\/\/Users\/onopko\/Dropbox\/Documents\/delayDo\/assets\/scss\/_common\.scss}line{font-family:\00003202}}
   .p-example .p-header--example h3 span {
     color: #fff; }
