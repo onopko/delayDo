@@ -147,16 +147,18 @@
 						exec();
 						delayTimer.pause();
 						delayTimer = void 0;
+
+						return this;
 					}, options.delay);
 				}
 				else {
 					exec();
-				}
 
-				return this;
+					return this;
+				}
 			}
 			else {
-				return undefined;
+				return false;
 			}
 		},
 		cancel: function (_timerId) {
@@ -166,8 +168,13 @@
 				return this;
 			}
 			else {
-				return undefined;
+				return false;
 			}
+		},
+		bustercall: function () {
+			$.each(this.queueObj, function () {
+				this.cancel("triggeredByCancelMethod");
+			});
 		}
 	});
 
@@ -183,7 +190,7 @@
 			return this;
 		}
 		else {
-			return undefined;
+			return false;
 		}
 	};
 
@@ -192,7 +199,7 @@
 			$.data($, "plugin_" + pluginName).resume(_options);
 		}
 		else {
-			return undefined;
+			return false;
 		}
 	};
 
@@ -201,7 +208,16 @@
 			$.data($, "plugin_" + pluginName).cancel(_timerId);
 		}
 		else {
-			return undefined;
+			return false;
+		}
+	};
+
+	$[pluginName].bustercall = function () {
+		if ($.data($, "plugin_" + pluginName)) {
+			$.data($, "plugin_" + pluginName).bustercall();
+		}
+		else {
+			return false;
 		}
 	};
 
