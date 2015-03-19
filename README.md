@@ -14,8 +14,8 @@ Also delayDo is friendly for modern browsers. Its delay method uses __requestAni
 1. Include jQuery and plugin's code:
 
 	```html
-	<script src="http://ajax.googleapis.com/ajax/libs/jquery/2.0.0/jquery.min.js"></script>
-	<script src="dist/delayDo.min.js"></script>
+	<script src="//ajax.googleapis.com/ajax/libs/jquery/2.0.0/jquery.min.js"></script>
+	<script src="delayDo.min.js"></script>
 	```
 2. Initialize a delayDo timer (just name a specific timer id) and add functions to its queue:
 
