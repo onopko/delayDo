@@ -143,10 +143,10 @@
 
 			if (that.queueObj[options.timerId]) {
 				if (options.delay !== null && typeof options.delay === "number") {
-					var delayTimer = setAnimationFrameTimeout(function () {
+					var resumeDelayTimer = setAnimationFrameTimeout(function () {
 						exec();
-						delayTimer.pause();
-						delayTimer = void 0;
+						resumeDelayTimer.pause();
+						resumeDelayTimer = void 0;
 
 						return this;
 					}, options.delay);
