@@ -4,6 +4,11 @@ delayDo is a tiny jQuery plugin. It enables you to create a specific timer which
 
 Also delayDo is friendly for modern browsers. Its delay method uses __requestAnimationFrame()__ and __performance.now()__ instead of setTimeout() and Date.now().
 
+## Demo
+
+[http://onopko.github.io/delayDo/](http://onopko.github.io/delayDo/)
+
+
 ## Usage
 
 1. Include jQuery:
