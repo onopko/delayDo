@@ -20,7 +20,8 @@ $(function () {
 	$.delayDo('animation', function () {
 		if (is_cssanimations) {
 			$('.p-header--site p')
-				.addClass('animated fadeInUp');
+				.css({ opacity: 1 })
+				.addClass('animated tada');
 		}
 		else {
 			$('.p-header--site p')

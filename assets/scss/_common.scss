@@ -157,7 +157,7 @@ ul, ol {
 		@include single-text-shadow (3px, 4px, 0, 0, #B5A242);
 		text-align: center;
 		color: #fff;
-		font-size: 110px;
+		font-size: 146px;
 		margin: 0;
 		span {
 			@include opacity (0);
@@ -166,7 +166,8 @@ ul, ol {
 	}
 	p {
 		@include opacity (0);
-		@extend .large;
+		margin: 1em 0 0 0;
+		font-size: 30px;
 		font-family: $font-family-futura;
 		font-weight: 700;
 		text-align: center;
