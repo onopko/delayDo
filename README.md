@@ -11,19 +11,13 @@ Also delayDo is friendly for modern browsers. Its delay method uses __requestAni
 
 ## Usage
 
-1. Include jQuery:
+1. Include jQuery and plugin's code:
 
 	```html
 	<script src="http://ajax.googleapis.com/ajax/libs/jquery/2.0.0/jquery.min.js"></script>
-	```
-
-2. Include plugin's code:
-
-	```html
 	<script src="dist/delayDo.min.js"></script>
 	```
-
-3. Initialize a delayDo timer (just name a specific timer id) and add functions to its queue:
+2. Initialize a delayDo timer (just name a specific timer id) and add functions to its queue:
 
 	```javascript
 	for (var i =0; i < 10; i++) {
@@ -41,8 +35,7 @@ Also delayDo is friendly for modern browsers. Its delay method uses __requestAni
 		// do another.
 	});
 	```
-
-4. Resume the delayDo timer. It calls a function from its queue one by one at regular intervals:
+3. Resume the delayDo timer. It calls a function from its queue one by one at regular intervals:
 
 	```javascript
 	$.delayDo.resume({
