@@ -33,3 +33,37 @@
 if (!$.support.transition){
 	$.fn.transition = $.fn.animate;
 }
+
+/* ==================================================================
+ *
+ * !Window Open
+ *
+ * ------------------------------------------------------------------ */
+
+function openLinkPopup(wUrl, wTitle, _wWidth, _wHeight) {
+	var wObj;
+
+	if (_wWidth) {
+		wWidth = _wWidth;
+	} else {
+		wWidth = 650;
+	}
+
+	if (_wHeight) {
+		wHeight = _wHeight;
+	} else {
+		wHeight = 600;
+	}
+
+	scWidthCenter = screen.availWidth / 2;
+	scHeightCenter = screen.availHeight / 2;
+	wOption = [
+		"toolbar=no,location=no,directories=no,status=no,menubar=no,scrollbars=no,resizable=no,width=", wWidth,
+		",height=", wHeight,
+		",left=", (scWidthCenter - (wWidth / 2)),
+		",top=", (scHeightCenter - (wHeight / 2))
+	].join('');
+
+	wObj = window.open(wUrl, wTitle ,wOption);
+	wObj.focus();
+}

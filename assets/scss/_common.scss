@@ -80,6 +80,16 @@ h3 {
  * ------------------------------------------------------------------ */
 
 /* ---------------------------------
+ *   Vertical Middle   */
+@mixin vertical-middle ($_height) {
+	line-height: $_height;
+
+	height: $_height;
+
+	vertical-align: middle;
+}
+
+/* ---------------------------------
  *   CSS Image Sprite   */
 @mixin sprite ($_src, $_src_2x, $_width, $_height, $_left, $_top, $_display: block) {
     display: $_display;
@@ -161,6 +171,48 @@ ul, ol {
 		font-weight: 700;
 		text-align: center;
 		color: #222;
+	}
+	ul.p-share-button {
+		position: fixed;
+		top: 50%;
+		left: 0;
+		margin: -50px 0 0 0;
+		padding: 0;
+		list-style: none;
+		li {
+			a {
+				@include transition-property(color backgroundColor);
+				@include transition-duration(0.3s);
+				display: block;
+				width: 50px;
+				height: 50px;
+				margin: 1px 0 0 0;
+				span {
+					@include vertical-middle (50px);
+					display: block;
+					width: 50px;
+					text-align: center;
+				}
+				@extend .large;
+				color: #fff;
+				text-decoration: none;
+				&.p-share-button__facebook {
+					background: #4964A1;
+				}
+				&.p-share-button__twitter {
+					background: #59ADEB;
+				}
+				&:hover {
+					background: #fff;
+					&.p-share-button__facebook {
+						color: #4964A1;
+					}
+					&.p-share-button__twitter {
+						color: #59ADEB;
+					}
+				}
+			}
+		}
 	}
 }
 
