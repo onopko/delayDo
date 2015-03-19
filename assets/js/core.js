@@ -1,14 +1,31 @@
 $(function () {
+	var is_cssanimations = false;
+	if ($('html').hasClass('cssanimations')) {
+		is_cssanimations = true;
+	}
+
 	$('.c-title--site span').each(function () {
 		var $target = $(this);
 		$.delayDo('animation', function () {
-			$target.addClass('animated bounceIn');
+			if (is_cssanimations) {
+				$target.addClass('animated bounceIn');
+			}
+			else {
+				$target
+					.transition({ opacity: 1 }, { duration: 500 });
+			}
 		});
 	});
 
 	$.delayDo('animation', function () {
-		$('.p-header--site p')
-			.addClass('animated fadeInUp');
+		if (is_cssanimations) {
+			$('.p-header--site p')
+				.addClass('animated fadeInUp');
+		}
+		else {
+			$('.p-header--site p')
+				.transition({ opacity: 1 }, { duration: 1000 });
+		}
 	});
 
 	$.delayDo.resume({
