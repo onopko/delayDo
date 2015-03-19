@@ -23,15 +23,26 @@ Also delayDo is friendly for modern browsers. Its delay method uses __requestAni
 	<script src="dist/delayDo.min.js"></script>
 	```
 
-3. Initialize a delayDo timer (just name specific timer id) and add functions to its queue:
+3. Initialize a delayDo timer (just name a specific timer id) and add functions to its queue:
 
 	```javascript
+	for (var i =0; i < 10; i++) {
+		$.delayDo('timerId', function () {
+			// do something.
+		});
+	}
+
+	// OR
+
 	$.delayDo('timerId', function () {
 		// do something.
 	});
+	$.delayDo('timerId', function () {
+		// do another.
+	});
 	```
 
-4. Resume the delayDo timer. It calls a function from the queue one by one at regular intervals:
+4. Resume the delayDo timer. It calls a function from its queue one by one at regular intervals:
 
 	```javascript
 	$.delayDo.resume({
@@ -43,7 +54,7 @@ Also delayDo is friendly for modern browsers. Its delay method uses __requestAni
 	});
 	```
 
-## Initialize and add functions to its queue
+## Initialize a timer and add functions to its queue
 
 ```javascript
 $.delayDo(
@@ -87,7 +98,7 @@ $.delayDo.resume({
 
 #### $.delayDo.cancel()
 
-Clear queue off specific delayDo timer and destroy itself.
+Clear the queue off a specific delayDo timer and destroy itself.
 
 ```javascript
 $.delayDo.cancel('timerId');
