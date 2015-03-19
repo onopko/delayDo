@@ -27,3 +27,9 @@
 //@codekit-append "../../_vendor/underscore/underscore.js"
 //@codekit-append "../../_vendor/rainbow/js/rainbow.js"
 //@codekit-append "../../_vendor/rainbow/js/language/javascript.js"
+//@codekit-append "../../_vendor/jquery.transit/jquery.transit.js"
+//@codekit-append "../../_vendor/delay-do/dist/delayDo.js"
+
+if (!$.support.transition){
+	$.fn.transition = $.fn.animate;
+}

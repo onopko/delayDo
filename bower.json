@@ -8,6 +8,9 @@
     "cssuseragent": "~2.1.28",
     "underscore": "~1.8.2",
     "normalize.scss": "~3.0.2",
-    "rainbow": "git://github.com/ccampbell/rainbow.git"
+    "rainbow": "git://github.com/ccampbell/rainbow.git",
+    "jquery.transit": "~0.9.12",
+    "animate.css": "~3.2.5",
+    "delay-do": "~1.0.0"
   }
 }

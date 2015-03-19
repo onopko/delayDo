@@ -105,7 +105,8 @@ body {
 
 em {
 	font-style: normal;
-	font-weight: bold;
+	font-family: $font-family-futura;
+	font-weight: 700;
 	color: #222;
 }
 
@@ -140,27 +141,34 @@ ul, ol {
     width: 720px;
 }
 
-
 .p-header--site {
-	margin: 80px 0;
+	margin: 120px 0;
 	.c-title--site {
 		@include single-text-shadow (3px, 4px, 0, 0, #B5A242);
 		text-align: center;
 		color: #fff;
-		font-size: 100px;
+		font-size: 110px;
 		margin: 0;
+		span {
+			@include opacity (0);
+			display: inline-block;
+		}
 	}
 	p {
+		@include opacity (0);
 		@extend .large;
 		font-family: $font-family-futura;
+		font-weight: 700;
 		text-align: center;
+		color: #222;
 	}
 }
 
 .c-description--site {
 	margin-bottom: 80px;
 	p {
-		font-weight: bold;
+		@extend .mid;
+		font-weight: 500;
 	}
 }
 
@@ -182,6 +190,16 @@ ul, ol {
 	h4 {
 		@extend .large;
 		font-weight: 700;
+	}
+}
+
+.p-section--usage {
+	@extend .p-section;
+	li {
+		margin-top: 3em;
+		&:first-child {
+			margin-top: 0;
+		}
 	}
 }
 
@@ -213,8 +231,8 @@ ul, ol {
 }
 
 .p-example {
-	margin-top: 2em;
 	margin-bottom: 4em;
+	margin-top: 2em;
 	.p-header--example {
 		h4 {
 			span {
