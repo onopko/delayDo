@@ -25,8 +25,9 @@ Also delayDo is friendly for modern browsers. Its delay method uses __requestAni
 			// do something.
 		});
 	}
+	```
 
-	// OR
+	```javascript
 
 	$.delayDo('timerId', function () {
 		// do something.
@@ -35,6 +36,7 @@ Also delayDo is friendly for modern browsers. Its delay method uses __requestAni
 		// do another.
 	});
 	```
+
 3. Resume the delayDo timer. It calls a function from its queue one by one at regular intervals:
 
 	```javascript
