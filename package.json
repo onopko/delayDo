@@ -20,17 +20,12 @@
 		"email": "me@onotakehiko.com",
 		"url": "https://github.com/onopko"
 	},
-	"homepage": "",
+	"homepage": "http://onopko.github.io/delayDo/",
 	"docs": "https://github.com/onopko/delayDo#readme",
 	"download": "https://github.com/onopko/delayDo/archive/master.zip",
 	"contributors": [
 	],
-	"licenses": [
-		{
-			"type": "MIT",
-			"url": "http://www.opensource.org/licenses/mit-license.php"
-		}
-	],
+	"license": "MIT",
 	"devDependencies": {
 		"grunt": "~0.4.5",
 		"grunt-cli": "~0.1.13",
