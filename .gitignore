@@ -23,3 +23,4 @@ Thumbs.db
 # Ignore SFTP Package Setting #
 sftp-config.json
 .remote-sync.json
+bower_components

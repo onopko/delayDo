@@ -1,82 +1,7 @@
 ;(function ($, window, undefined) {
-
 	"use strict";
 
 	var pluginName = "delayDo";
-
-	var performanceNow = window.performance && (
-		window.performance.now       ||
-		window.performance.webkitNow ||
-		window.performance.mozNow    ||
-		window.performance.msNow     ||
-		window.performance.oNow
-	);
-
-	var getTime = function() {
-		return (performanceNow && performanceNow.call(window.performance)) || (new Date().getTime());
-	};
-
-	var requestAnimationFrame = (function () {
-		return window.requestAnimationFrame       ||
-		       window.webkitRequestAnimationFrame ||
-		       window.mozRequestAnimationFrame    ||
-		       window.msRequestAnimationFrame     ||
-		       window.oRequestAnimationFrame      ||
-		       function (_callback) {
-		           window.setTimeout(_callback, 1000 / 60);
-		       };
-	})();
-
-	var setAnimationFrameTimeout = function(_callback, _interval) {
-		var elapsed   = 0;
-		var time      = getTime();
-		var is_paused = false;
-
-		var update = function() {
-			var now = getTime();
-			elapsed += (now - time);
-			time = now;
-
-			if (elapsed >= _interval) {
-				var n = Math.floor(elapsed / _interval);
-				elapsed -= n * _interval;
-				_callback();
-
-				n = void 0;
-			}
-
-			if (!is_paused) {
-				requestAnimationFrame(update);
-			}
-
-			now = void 0;
-		};
-
-		update();
-
-		return {
-			play: function() {
-				is_paused = false;
-				update();
-			},
-			pause: function() {
-				is_paused = true;
-			},
-			step: function() {
-				is_paused = true;
-				elapsed = _interval;
-				update();
-			},
-			toggle: function() {
-				if (is_paused) {
-					this.play();
-				}
-				else {
-					this.pause();
-				}
-			}
-		};
-	};
 
 	function Plugin (_timerId, _func) {
 		this.queueObj = {};
@@ -126,7 +51,7 @@
 
 			var exec = function () {
 				that.queueObj[options.timerId].cancel();
-				that.queueObj[options.timerId].timer = setAnimationFrameTimeout(function () {
+				that.queueObj[options.timerId].timer = $.setAnimationFrameTimeout(function () {
 					var queue_func = that.queueObj[options.timerId].queue.shift();
 					if (queue_func) {
 						queue_func();
@@ -143,7 +68,7 @@
 
 			if (that.queueObj[options.timerId]) {
 				if (options.delay !== null && typeof options.delay === "number") {
-					var resumeDelayTimer = setAnimationFrameTimeout(function () {
+					var resumeDelayTimer = $.setAnimationFrameTimeout(function () {
 						exec();
 						resumeDelayTimer.pause();
 						resumeDelayTimer = void 0;

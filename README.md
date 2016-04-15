@@ -2,8 +2,6 @@
 
 delayDo is a tiny jQuery plugin. It enables you to create a specific timer which contains some functions as a queue and can resume it later.
 
-Also delayDo is friendly for modern browsers. Its delay method uses __requestAnimationFrame()__ and __performance.now()__ instead of setTimeout() and Date.now().
-
 ## Demo
 
 [http://onopko.github.io/delayDo/](http://onopko.github.io/delayDo/)
@@ -11,10 +9,11 @@ Also delayDo is friendly for modern browsers. Its delay method uses __requestAni
 
 ## Usage
 
-1. Include jQuery and plugin's code:
+1. Include plugin includes dependencies:
 
 	```html
 	<script src="//ajax.googleapis.com/ajax/libs/jquery/2.0.0/jquery.min.js"></script>
+	<script src="setAnimationFrameTimeout.min.js"></script>
 	<script src="delayDo.min.js"></script>
 	```
 2. Initialize a delayDo timer (just name a specific timer id) and add functions to its queue:

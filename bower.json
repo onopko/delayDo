@@ -1,17 +1,20 @@
 {
-	"name": "delayDo",
-	"version": "1.0.0",
-	"homepage": "https://github.com/onopko/delayDo.git",
-	"authors": [
-		"Takehiko Ono <me@onotakehiko.com>"
-	],
-	"description": "delayDo is a tiny jQuery plugin. It enables you to  create a specific timer which contains some functions as a queue and can resume it later.",
-	"main": "src/delayDo.js",
-	"keywords": [
-		"jquery",
-		"plugin",
-		"jquery-plugin",
-		"delay-do"
-	],
-	"license": "MIT"
+  "name": "delayDo",
+  "version": "1.0.0",
+  "homepage": "https://github.com/onopko/delayDo.git",
+  "authors": [
+    "Takehiko Ono <me@onotakehiko.com>"
+  ],
+  "description": "delayDo is a tiny jQuery plugin. It enables you to  create a specific timer which contains some functions as a queue and can resume it later.",
+  "main": "src/delayDo.js",
+  "keywords": [
+    "jquery",
+    "plugin",
+    "jquery-plugin",
+    "delay-do"
+  ],
+  "license": "MIT",
+  "dependencies": {
+    "setAnimationFrameTimeout": "*"
+  }
 }
