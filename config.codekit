@@ -1673,17 +1673,6 @@
 		"outputStyle": 1,
 		"syntaxCheckerStyle": 1
 		},
-	"\/_vendor\/delay-do\/dist\/delayDo.min.js": {
-		"fileType": 64,
-		"ignore": 1,
-		"ignoreWasSetByUser": 0,
-		"inputAbbreviatedPath": "\/_vendor\/delay-do\/dist\/delayDo.min.js",
-		"outputAbbreviatedPath": "\/_vendor\/delay-do\/dist\/delayDo.min.min.js",
-		"outputPathIsOutsideProject": 0,
-		"outputPathIsSetByUser": 0,
-		"outputStyle": 1,
-		"syntaxCheckerStyle": 1
-		},
 	"\/_vendor\/delay-do\/Gruntfile.js": {
 		"fileType": 64,
 		"ignore": 0,
@@ -6179,7 +6168,7 @@
 		"outputPathIsOutsideProject": 0,
 		"outputPathIsSetByUser": 0,
 		"outputStyle": 1,
-		"syntaxCheckerStyle": 0
+		"syntaxCheckerStyle": 1
 		},
 	"\/assets\/js\/vendor\/jquery.min.js": {
 		"fileType": 64,
@@ -6201,7 +6190,7 @@
 		"outputPathIsOutsideProject": 0,
 		"outputPathIsSetByUser": 0,
 		"outputStyle": 1,
-		"syntaxCheckerStyle": 0
+		"syntaxCheckerStyle": 1
 		},
 	"\/assets\/js\/vendor\/modernizr.min.js": {
 		"fileType": 64,
@@ -6220,7 +6209,7 @@
 		"decimalPrecision": 5,
 		"fileType": 4,
 		"ignore": 1,
-		"ignoreWasSetByUser": 1,
+		"ignoreWasSetByUser": 0,
 		"inputAbbreviatedPath": "\/assets\/scss\/_common.scss",
 		"outputAbbreviatedPath": "No Output Path",
 		"outputPathIsOutsideProject": 0,
