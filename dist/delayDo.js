@@ -78,7 +78,7 @@
 				if (options.delay !== null && typeof options.delay === "number") {
 					var resumeDelayTimer = $.setAnimationFrameTimeout(function () {
 						exec();
-						resumeDelayTimer.pause();
+						$.clearAnimationFrameTimeout(resumeDelayTimer);
 						resumeDelayTimer = void 0;
 
 						return this;
