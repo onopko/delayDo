@@ -22,3 +22,4 @@ Thumbs.db
 sftp-config.json
 deployment-config.json
 .remote-sync.json
+bower_components

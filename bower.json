@@ -12,6 +12,7 @@
     "jquery.transit": "~0.9.12",
     "animate.css": "~3.2.5",
     "delay-do": "~1.0.0",
-    "font-awesome": "~4.3.0"
+    "font-awesome": "~4.3.0",
+    "setAnimationFrameTimeout": "*"
   }
 }
