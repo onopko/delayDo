@@ -1,6 +1,6 @@
 {
   "name": "delayDo",
-  "version": "1.0.0",
+  "version": "1.1.0",
   "dependencies": {
     "compass-h5bp": "git://github.com/sporkd/compass-h5bp.git",
     "jquery": "~1.11.2",
