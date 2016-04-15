@@ -1,5 +1,5 @@
 {
-  "name": "compass-h5bp-codekit-barebone",
+  "name": "delayDo",
   "version": "1.0.0",
   "dependencies": {
     "compass-h5bp": "git://github.com/sporkd/compass-h5bp.git",
@@ -11,7 +11,7 @@
     "rainbow": "git://github.com/ccampbell/rainbow.git",
     "jquery.transit": "~0.9.12",
     "animate.css": "~3.2.5",
-    "delay-do": "~1.0.0",
+    "delay-do": "~1.1.0",
     "font-awesome": "~4.3.0",
     "setAnimationFrameTimeout": "*"
   }
