@@ -1,5 +1,5 @@
 /*
- *  delayDo - v1.0.0
+ *  delayDo - v1.1.0
  *  delayDo is a tiny jQuery plugin. It enables you to  create a specific timer which contains some functions as a queue and can resume it later.
  *  http://onopko.github.io/delayDo/
  *
