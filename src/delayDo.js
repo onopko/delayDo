@@ -1,4 +1,4 @@
-;(function ($, window, undefined) {
+;(function ($) {
 	"use strict";
 
 	var pluginName = "delayDo";
@@ -146,4 +146,4 @@
 		}
 	};
 
-})(jQuery, window);
+})(jQuery);
