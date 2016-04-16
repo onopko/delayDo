@@ -19,20 +19,13 @@
 				that.queueObj[_timerId] = {
 					queue: [],
 					timer: null,
-					cancel: function (_mode) {
-						if (_mode !== undefined && _mode === "triggeredByCancelMethod") {
-							if (that.queueObj[_timerId].timer) {
-								that.queueObj[_timerId].timer.pause();
-							}
-							that.queueObj[_timerId].timer = null;
-							that.queueObj[_timerId].queue = [];
-							that.queueObj[_timerId] = null;
+					cancel: function () {
+						if (that.queueObj[_timerId].timer) {
+							$.clearAnimationFrameTimeout(that.queueObj[_timerId].timer);
 						}
-						else if (that.queueObj[_timerId].timer) {
-							that.queueObj[_timerId].timer.pause();
-							that.queueObj[_timerId].timer = null;
-							that.queueObj[_timerId] = null;
-						}
+						that.queueObj[_timerId].timer = null;
+						that.queueObj[_timerId].queue.length = 0;
+						that.queueObj[_timerId] = null;
 					}
 				};
 			}
@@ -43,43 +36,35 @@
 			var options = $.extend({
 				timerId  : null,
 				interval : 100,
-				delay    : null,
+				delay    : 0,
 				complete : null
 			}, _options);
 
 			var that = this;
 
-			var exec = function () {
-				that.queueObj[options.timerId].cancel();
-				that.queueObj[options.timerId].timer = $.setAnimationFrameTimeout(function () {
-					var queue_func = that.queueObj[options.timerId].queue.shift();
-					if (queue_func) {
-						queue_func();
+			var loop = function () {
+				var queue_func = that.queueObj[options.timerId].queue.shift();
+				if (queue_func) {
+					queue_func();
+					that.queueObj[options.timerId].timer = $.setAnimationFrameTimeout(loop, options.interval);
+				}
+				else {
+					that.queueObj[options.timerId].cancel();
+
+					if (typeof options.complete === "function") {
+						options.complete();
 					}
-					else {
-						that.queueObj[options.timerId].cancel();
-						if (typeof options.complete === "function") {
-							options.complete();
-						}
-					}
-					queue_func = void 0;
-				}, options.interval);
+				}
+
+				queue_func = void 0;
 			};
 
 			if (that.queueObj[options.timerId]) {
-				if (options.delay !== null && typeof options.delay === "number") {
-					var resumeDelayTimer = $.setAnimationFrameTimeout(function () {
-						exec();
-						$.clearAnimationFrameTimeout(resumeDelayTimer);
-						resumeDelayTimer = void 0;
-
-						return this;
-					}, options.delay);
+				if (options.delay > 0) {
+					$.setAnimationFrameTimeout(loop, options.delay);
 				}
 				else {
-					exec();
-
-					return this;
+					loop();
 				}
 			}
 			else {
@@ -88,7 +73,7 @@
 		},
 		cancel: function (_timerId) {
 			if (this.queueObj[_timerId]) {
-				this.queueObj[_timerId].cancel("triggeredByCancelMethod");
+				this.queueObj[_timerId].cancel();
 
 				return this;
 			}
@@ -98,7 +83,7 @@
 		},
 		bustercall: function () {
 			$.each(this.queueObj, function () {
-				this.cancel("triggeredByCancelMethod");
+				this.cancel();
 			});
 		}
 	});
