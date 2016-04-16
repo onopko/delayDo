@@ -9,7 +9,7 @@ delayDo is a tiny jQuery plugin. It enables you to create a specific timer which
 
 ## Usage
 
-1. Include plugin includes dependencies:
+1. Include jQuery, <a href="https://github.com/onopko/setAnimationFrameTimeout">setAnimationFrameTimeout</a> and delayDo:
 
 	```html
 	<script src="//ajax.googleapis.com/ajax/libs/jquery/2.0.0/jquery.min.js"></script>
