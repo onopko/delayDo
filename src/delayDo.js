@@ -43,10 +43,13 @@
 			var that = this;
 
 			var loop = function () {
-				var queue_func = that.queueObj[options.timerId].queue.shift();
-				if (queue_func) {
+				if (that.queueObj[options.timerId].queue.length > 0) {
+					var queue_func = that.queueObj[options.timerId].queue.shift();
+
 					queue_func();
 					that.queueObj[options.timerId].timer = $.setAnimationFrameTimeout(loop, options.interval);
+
+					queue_func = void 0;
 				}
 				else {
 					that.queueObj[options.timerId].cancel();
@@ -55,8 +58,6 @@
 						options.complete();
 					}
 				}
-
-				queue_func = void 0;
 			};
 
 			if (that.queueObj[options.timerId]) {
