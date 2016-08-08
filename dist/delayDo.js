@@ -26,14 +26,14 @@
 			if (!that.queueObj[_timerId]) {
 				that.queueObj[_timerId] = {
 					queue: [],
-					timer: null,
+					timer: undefined,
 					cancel: function () {
 						if (that.queueObj[_timerId].timer) {
 							$.clearAnimationFrameTimeout(that.queueObj[_timerId].timer);
 						}
-						that.queueObj[_timerId].timer = null;
-						that.queueObj[_timerId].queue.length = 0;
-						that.queueObj[_timerId] = null;
+						that.queueObj[_timerId].timer = void 0;
+						that.queueObj[_timerId].queue = void 0;
+						that.queueObj[_timerId] = void 0;
 					}
 				};
 			}
@@ -42,10 +42,10 @@
 		},
 		resume: function (_options) {
 			var options = $.extend({
-				timerId  : null,
+				timerId  : undefined,
 				interval : 100,
 				delay    : 0,
-				complete : null
+				complete : undefined
 			}, _options);
 
 			var that = this;
