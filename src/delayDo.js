@@ -43,20 +43,25 @@
 			var that = this;
 
 			var loop = function () {
-				if (that.queueObj[options.timerId].queue.length > 0) {
-					var queue_func = that.queueObj[options.timerId].queue.shift();
+				if (that.queueObj[options.timerId]) {
+					if (that.queueObj[options.timerId].queue.length > 0) {
+						var queue_func = that.queueObj[options.timerId].queue.shift();
 
-					queue_func();
-					that.queueObj[options.timerId].timer = $.setAnimationFrameTimeout(loop, options.interval);
+						queue_func();
+						that.queueObj[options.timerId].timer = $.setAnimationFrameTimeout(loop, options.interval);
 
-					queue_func = void 0;
+						queue_func = void 0;
+					}
+					else {
+						that.queueObj[options.timerId].cancel();
+
+						if (typeof options.complete === "function") {
+							options.complete();
+						}
+					}
 				}
 				else {
-					that.queueObj[options.timerId].cancel();
-
-					if (typeof options.complete === "function") {
-						options.complete();
-					}
+					return false;
 				}
 			};
 

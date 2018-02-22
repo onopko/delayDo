@@ -1,6 +1,6 @@
 /*
- *  delayDo - v1.2.1
- *  delayDo is a tiny jQuery plugin. It enables you to  create a specific timer which contains some functions as a queue and can resume it later.
+ *  delay-do - v1.3.0
+ *  delayDo enables creating a specific timer which contains some functions as a queue and can resume it later.
  *  http://onopko.github.io/delayDo/
  *
  *  Made by Takehiko Ono
@@ -51,20 +51,25 @@
 			var that = this;
 
 			var loop = function () {
-				if (that.queueObj[options.timerId].queue.length > 0) {
-					var queue_func = that.queueObj[options.timerId].queue.shift();
+				if (that.queueObj[options.timerId]) {
+					if (that.queueObj[options.timerId].queue.length > 0) {
+						var queue_func = that.queueObj[options.timerId].queue.shift();
 
-					queue_func();
-					that.queueObj[options.timerId].timer = $.setAnimationFrameTimeout(loop, options.interval);
+						queue_func();
+						that.queueObj[options.timerId].timer = $.setAnimationFrameTimeout(loop, options.interval);
 
-					queue_func = void 0;
+						queue_func = void 0;
+					}
+					else {
+						that.queueObj[options.timerId].cancel();
+
+						if (typeof options.complete === "function") {
+							options.complete();
+						}
+					}
 				}
 				else {
-					that.queueObj[options.timerId].cancel();
-
-					if (typeof options.complete === "function") {
-						options.complete();
-					}
+					return false;
 				}
 			};
 
